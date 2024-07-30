@@ -18,9 +18,8 @@ fn main() {
         println!("Usage: {} $PATH", args[0]);
         return;
     }
-    
+
     if let Err(fault) = run_lc3(&args[1]) {
         print_crash(&fault);
     }
 }
- 

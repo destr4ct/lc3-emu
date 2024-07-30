@@ -142,7 +142,6 @@ impl Machine {
         if idx == MR_KBSR {
             self.mem[MR_KBSR] = 1 << 15;
             self.mem[MR_KBDR] = 0x41;
-            panic!("todo")
         }
 
         self.mem[idx]
@@ -175,9 +174,7 @@ impl Machine {
             let instr = Instruction::from_mem(
                 self.load_mem_from_reg(REG_RPC)
             );
-
-            // println!("{:?} raw=0x{:x} at RIP=0x{:04x}", instr.opcode(), instr.get_v(), self.get_register(REG_RPC));
-
+            
             self.inc_reg(REG_RPC, 1);
 
             match instr.opcode() {
